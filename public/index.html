@@ -15,6 +15,17 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <script src="https://cdn.amplitude.com/libs/analytics-browser-2.7.4-min.js.gz"></script>
+    <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.6.8-min.js.gz"></script>
+    <script src="https://cdn.amplitude.com/libs/plugin-autocapture-browser-0.9.0-min.js.gz"></script>
+    <script>
+      window.amplitude
+        .add(window.sessionReplay.plugin({ sampleRate: 1 }))
+        .promise.then(function () {
+          window.amplitude.add(window.amplitudeAutocapturePlugin.plugin());
+          window.amplitude.init("117dba926b495ac125712fd11575abfe");
+        });
+    </script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
