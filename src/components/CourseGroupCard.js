@@ -10,7 +10,18 @@ const CourseGroupCard = ({ group }) => {
   };
 
   return (
-    <Card onClick={handleClick} sx={{ cursor: "pointer" }}>
+    <Card
+      onClick={handleClick}
+      style={{
+        backgroundColor: "#f0f0f0",
+        width: "100%",
+        maxWidth: 350,
+        margin: "0 auto",
+        ...(window.innerWidth <= 600 && {
+          maxWidth: "100%",
+        }),
+      }}
+    >
       <CardContent>
         <Typography variant="h5">{group.title}</Typography>
       </CardContent>

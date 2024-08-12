@@ -10,7 +10,19 @@ const CourseCard = ({ course }) => {
   };
 
   return (
-    <Card onClick={handleClick} sx={{ cursor: "pointer" }}>
+    <Card
+      onClick={handleClick}
+      sx={{ cursor: "pointer" }}
+      style={{
+        backgroundColor: "#f0f0f0",
+        width: "100%",
+        maxWidth: 350,
+        margin: "0 auto",
+        ...(window.innerWidth <= 600 && {
+          maxWidth: "100%",
+        }),
+      }}
+    >
       <CardContent>
         <Typography variant="h6" gutterBottom>
           {course.title}
